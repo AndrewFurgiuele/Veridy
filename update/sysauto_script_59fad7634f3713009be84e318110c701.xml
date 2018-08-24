@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>Hide old records</name>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2018-08-14 21:15:49</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>weekly</run_type>
+        <script><![CDATA[var gr = new GlideRecord("x_140262_veridy_juxtapose");
+gr.addQuery("sys_created_onONLast week@javascript:gs.beginningOfLastWeek()@javascript:gs.endOfLastWeek()^matching_ciISEMPTY");
+gr.query();
+
+while(gr.next()){
+	gr.setValue("status", 20);
+}
+
+
+
+
+]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-14 21:17:04</sys_created_on>
+        <sys_id>59fad7634f3713009be84e318110c701</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Hide old records</sys_name>
+        <sys_package display_value="Veridy" source="x_140262_veridy">b8bbf0d44f3213009be84e318110c774</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Veridy">b8bbf0d44f3213009be84e318110c774</sys_scope>
+        <sys_update_name>sysauto_script_59fad7634f3713009be84e318110c701</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-16 21:01:27</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>
